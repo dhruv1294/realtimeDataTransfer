@@ -20,7 +20,6 @@ import android.widget.Button;
 public class Fragment2 extends Fragment implements customView.onCanvasTouch{
     private Fragment2Listener listener;
     customView customView;
-    Button clearPath;
 
     @Override
     public void onTouch(Path path) {
@@ -44,14 +43,7 @@ public class Fragment2 extends Fragment implements customView.onCanvasTouch{
         View v =inflater.inflate(R.layout.fragment_fragment2, container, false);
         customView = v.findViewById(R.id.customview);
         customView.setmCallBack(this);
-        clearPath = v.findViewById(R.id.clearButton);
 
-        clearPath.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                customView.clearPath();
-            }
-        });
 
 
 
