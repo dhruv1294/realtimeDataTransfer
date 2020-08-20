@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -24,7 +25,9 @@ public class customView extends View {
 
     public  Path path;
     public Paint paint;
+
     boolean isInit;
+
     public customView(Context context) {
         super(context);
     }
@@ -49,6 +52,8 @@ public class customView extends View {
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(Color.BLACK);
         isInit = true;
+
+
     }
 
     @Override
@@ -59,12 +64,16 @@ public class customView extends View {
         canvas.drawColor(Color.YELLOW);
 
         canvas.drawPath(path,paint);
+
         invalidate();
 
     }
 
     public void setPath(Path path){
         this.path = path;
+    }
+    public void clearPath(){
+        path.reset();
     }
 
     @Override

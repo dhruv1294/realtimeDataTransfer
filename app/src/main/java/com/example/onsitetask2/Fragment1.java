@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 /**
@@ -20,6 +21,7 @@ import android.view.ViewGroup;
 public class Fragment1 extends Fragment implements customView.onCanvasTouch{
     private Fragment1Listener listener;
     customView customView;
+    Button clearButton;
 
 
     @Override
@@ -46,6 +48,13 @@ public class Fragment1 extends Fragment implements customView.onCanvasTouch{
         View v =inflater.inflate(R.layout.fragment_fragment1, container, false);
         customView = v.findViewById(R.id.customview);
         customView.setmCallBack(this);
+        clearButton = v.findViewById(R.id.clearButton);
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                customView.clearPath();
+            }
+        });
 
 
 
